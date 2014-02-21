@@ -2,7 +2,7 @@
 {
     using System;
 
-    class RangerClass : HeroClassBases
+   public class RangerClass : HeroClassBases
     {
         public override uint baseHealth
         {
