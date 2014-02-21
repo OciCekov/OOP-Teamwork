@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="LuboTheHero.MainTest" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>MainTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Ability" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAQAAAAAAAAAAAAAAAAACAAAAAAAQBAAAA=</HashCode>
+      <FileName>Abilities.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.21" Collapsed="true" />
+  </Class>
+  <Class Name="LuboTheHero.Str">
+    <Position X="6" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Str.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Armour" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Armour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Body" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Body.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Item" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClassItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Dex" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Engine" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Fighter" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Fighter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Lnt" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lnt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Potions" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Potions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Ranger" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ranger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Trinkets" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Trinkets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Weapons" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Weapons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Wis" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Wis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuboTheHero.Wizzard" Collapsed="true">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Wizzard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="LuboTheHero.IAbilities" Collapsed="true">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQBAAAA=</HashCode>
+      <FileName>IAbilities.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LuboTheHero.IHeroBases">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IHeroBases.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LuboTheHero.ISkills">
+    <Position X="11.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ISkills.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
