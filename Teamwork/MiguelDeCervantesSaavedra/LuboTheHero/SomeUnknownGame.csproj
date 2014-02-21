@@ -41,8 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FighterClass.cs" />
+    <Compile Include="HeroClassBases.cs" />
+    <Compile Include="IPickable.cs" />
     <Compile Include="MainTest.cs" />
+    <Compile Include="Potions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RangerClass.cs" />
+    <Compile Include="WizardClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
