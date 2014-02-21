@@ -4,6 +4,12 @@
 
     public class WizardClass : HeroClassBases
     {
+        //changed by Ivo for testing purposes
+
+        public WizardClass(string name, uint baseHealth, uint baseMana,uint baseDamage ) : base(name, baseHealth, baseMana, baseDamage )
+        {
+
+        }
         public override uint baseHealth
         {
             get
