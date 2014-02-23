@@ -14,6 +14,10 @@
 
         Ability AbilityCurrent { get; }
 
+        LuboTheHero.Ability LooseAbility(LuboTheHero.Ability oldAbility);
+
+        LuboTheHero.Ability AddPoint(LuboTheHero.Ability oldAbility);
+
         /* abilityMin (byte)
         - abilityMax (byte)
         - abilityCurrent (byte)*/

@@ -2,7 +2,6 @@
 {
     public abstract class Ability : IAbilities
     {
-     
 
         public abstract Ability AddPoint(Ability oldAbility); // Input Ability, idea is to get some ability and increase it's points
 
