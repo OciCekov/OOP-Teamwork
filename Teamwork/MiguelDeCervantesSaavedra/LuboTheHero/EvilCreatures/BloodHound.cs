@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-namespace LuboTheHero.EvilCreatures
+﻿namespace LuboTheHero.EvilCreatures
 {
     public class BloodHound : Monster // ,IPrint, IMove
     {

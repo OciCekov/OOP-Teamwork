@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    interface IHero
+    public class UsableItems : Item
     {
-        void LevelUp();
+        public UsableItems(string name) //za questove
+            :base(name, "usableItem")
+        { }
     }
 }
