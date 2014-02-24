@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    public class Fighter : Creature
+    public class Fighter : Hero
     {
         public Fighter(string name)
             : base()
