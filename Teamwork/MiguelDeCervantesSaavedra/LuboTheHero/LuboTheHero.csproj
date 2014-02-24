@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abilities.cs" />
     <Compile Include="CharacterSheet.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="Engine.cs" />
