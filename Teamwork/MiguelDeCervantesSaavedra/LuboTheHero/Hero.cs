@@ -9,6 +9,32 @@ namespace LuboTheHero
     public class Hero : Creature, ICreature
     {
         //public Inventory MyInventory { get; set; }
+        public List<Item> equippedInventar;
+        public List<Item> backpackInventar;
+
+        public static KeyValuePair<string, uint>[] ItemRestrictions = { 
+                                                                                new KeyValuePair<string, uint> ("bodyArmour",1),
+                                                                                new KeyValuePair<string, uint> ("helmet",1),
+                                                                                new KeyValuePair<string, uint> ("boots",1),
+                                                                                new KeyValuePair<string, uint> ("gloves",1),
+                                                                                new KeyValuePair<string, uint> ("ring",10),
+                                                                                new KeyValuePair<string, uint> ("meleeWeapon",2),
+                                                                                new KeyValuePair<string, uint> ("rangedWeapon",1),
+                                                                                new KeyValuePair<string, uint> ("staffWeapon",1)
+                                                                           };
+
+
+        public List<Item> BackpackInventar
+        {
+            get { return backpackInventar; }
+            set { backpackInventar = value; }
+        }
+
+        public List<Item> EquippedInventar
+        {
+            get { return equippedInventar; }
+            set { equippedInventar = value; }
+        }
 
         public Hero()
             : base()
@@ -95,6 +121,86 @@ namespace LuboTheHero
                     monster.IsAttacking = false;
                 }
             }
+        }
+
+        public void Equip(EquippableItem itemToEquip)
+        {
+            int countItemTypeEquipped = 0;
+
+            foreach (var item in EquippedInventar)
+            {
+                if (item.Type == itemToEquip.Type)
+                {
+                    countItemTypeEquipped++;
+                }
+            }
+
+            uint restriction = TypeAllowedNumber(itemToEquip);
+            bool meetsRequirements = CheckItemRequiremets(itemToEquip) && CheckClassConstraints(itemToEquip);
+
+            if (countItemTypeEquipped >= restriction)
+            {
+                Console.WriteLine("This equipment can not be equiped because maximum allowed number of items from this type is reached.");
+            }
+            else if (!(meetsRequirements))
+            {
+                Console.WriteLine("This equipment can not be equiped because you don't meet the item requirements.");
+            }
+            else
+            {
+                this.equippedInventar.Add(itemToEquip);
+            }
+        }
+
+        public uint TypeAllowedNumber(Item item)
+        {
+            foreach (var pair in ItemRestrictions)
+            {
+                if (pair.Key == item.Type)
+                {
+                    return pair.Value;
+                }
+            }
+
+            return uint.MaxValue;
+        }
+
+        public bool CheckItemRequiremets(EquippableItem item)
+        {
+            foreach (var pair in item.Requirements)
+            {
+                switch (pair.Key)
+                {
+                    case "Level":
+                        if (this.Level < pair.Value)
+                            return false;
+                        break;
+                    case "Stregth":
+                        if (this.Strenght < pair.Value)
+                            return false;
+                        break;
+                    case "Dexterity":
+                        if (this.Dexterity < pair.Value)
+                            return false;
+                        break;
+                    case "Inteligence":
+                        if (this.Inteligence < pair.Value)
+                            return false;
+                        break;
+                    case "Wisdom":
+                        if (this.Wisdom < pair.Value)
+                            return false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return true;
+        }
+
+        public bool CheckClassConstraints(EquippableItem item) //moje i bez reflection ako napravim pole heroType v Hero
+        {
+            return this.GetType().Name == item.ClassConstraint;
         }
 
     }
