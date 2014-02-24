@@ -45,7 +45,6 @@
     <Compile Include="Armour.cs" />
     <Compile Include="Body.cs" />
     <Compile Include="ClassItem.cs" />
-    <Compile Include="Dextirity.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="IAbilities.cs" />
     <Compile Include="IHeroBases.cs" />
