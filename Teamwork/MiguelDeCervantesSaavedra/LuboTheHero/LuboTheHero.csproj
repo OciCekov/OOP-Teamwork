@@ -42,26 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities.cs" />
-    <Compile Include="Armour.cs" />
-    <Compile Include="Body.cs" />
-    <Compile Include="ClassItem.cs" />
     <Compile Include="Engine.cs" />
-    <Compile Include="IAbilities.cs" />
-    <Compile Include="IHeroBases.cs" />
-    <Compile Include="ISkills.cs" />
-    <Compile Include="Intelligence.cs" />
-    <Compile Include="MainTest.cs" />
-    <Compile Include="Potions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strenght.cs" />
-    <Compile Include="Trinkets.cs" />
-    <Compile Include="Weapons.cs" />
-    <Compile Include="Wisdom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
