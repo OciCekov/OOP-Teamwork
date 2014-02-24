@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    public class Ranger : Creature
+    public class Ranger : Hero
     {
         public Ranger(string name)
             : base()
@@ -21,7 +21,7 @@ namespace LuboTheHero
             this.Health = 9 + this.Strenght;
             this.Mana = 9 + this.Inteligence;
             this.Attack = (byte)(this.Dexterity + 3);
-            this.PhysicalDamage = this.Dexterity; //TO DO add item damage
+            this.PhysicalDamage = this.Dexterity; //TODO add item damage
             this.SpellDamage = 0;
             this.ExperiencePoints = 1;
 
@@ -36,6 +36,6 @@ namespace LuboTheHero
             this.Name = name;
         }
 
-        //TO DO implement levelUp() method from IHero interface
+        //TODO implement levelUp() method from IHero interface
     }
 }

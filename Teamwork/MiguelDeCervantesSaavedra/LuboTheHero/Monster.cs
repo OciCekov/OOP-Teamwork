@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    public  class Monster : Creature, ICreature
+    public class Monster : Creature, ICreature
     {
-        public Monster()
+        public Monster(int health, byte phisicalDamage, byte spellDamge, byte initiative, int lineofSight)
         {
+            this.Health = health;
+            this.PhysicalDamage = phisicalDamage;
+            this.SpellDamage = spellDamge;
+            this.Initiative = initiative;
+            this.LineOfSight = lineofSight;
+            this.IsAlive = true;
         }
 
         public void Fight(Hero hero, Monster monster)

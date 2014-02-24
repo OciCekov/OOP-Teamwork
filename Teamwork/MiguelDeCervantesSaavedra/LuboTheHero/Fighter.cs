@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    public class Fighter : Creature
+    public class Fighter : Hero
     {
         public Fighter(string name)
             : base()
@@ -21,7 +21,7 @@ namespace LuboTheHero
             this.Health = 10 + this.Strenght;
             this.Mana = 8 + this.Inteligence;
             this.Attack = (byte)(this.Strenght + 3);
-            this.PhysicalDamage = (byte)(1 + this.Strenght); //TO DO add item damage
+            this.PhysicalDamage = (byte)(1 + this.Strenght); //TODO add item damage
             this.SpellDamage = 0;
             this.ExperiencePoints = 1;
             this.initiative = (byte)(2 + this.Dexterity);
