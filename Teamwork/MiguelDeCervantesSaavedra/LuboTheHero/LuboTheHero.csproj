@@ -44,6 +44,13 @@
     <Compile Include="CharacterSheet.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="EvilCreatures\BloodHound.cs" />
+    <Compile Include="EvilCreatures\HellSnake.cs" />
+    <Compile Include="EvilCreatures\KillerBiever.cs" />
+    <Compile Include="EvilCreatures\MudShark.cs" />
+    <Compile Include="EvilCreatures\SpikedTurtle.cs" />
+    <Compile Include="EvilCreatures\UnicornOfDeath.cs" />
+    <Compile Include="EvilCreatures\ViciousFlower.cs" />
     <Compile Include="Fighter.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="ICreature.cs" />
@@ -52,11 +59,13 @@
     <Compile Include="Monster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ranger.cs" />
+    <Compile Include="TestsMain.cs" />
     <Compile Include="Wizard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

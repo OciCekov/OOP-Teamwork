@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    public class Monster : Creature, ICreature
+    public  class Monster : Creature, ICreature
     {
         public Monster()
         {
