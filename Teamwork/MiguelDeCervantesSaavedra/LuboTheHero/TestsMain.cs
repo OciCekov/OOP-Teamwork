@@ -11,8 +11,7 @@ namespace LuboTheHero
     {
         public static void Main()
         {
-            var khj = new BloodHound();
-            
+           
 
         }
     }
