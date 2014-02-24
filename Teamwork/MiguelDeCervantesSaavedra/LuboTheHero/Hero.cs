@@ -15,14 +15,17 @@ namespace LuboTheHero
         {
         }
 
-
+        //a method which determines wheter or not the two oppnents can start a fight
         public void Fight(Hero hero, Monster monster)
         {
             //if(hero.DistanceTo(monster) <= hero.lineOfSight) -- there will be a method for calculating distances between creatures
+            //if both oppnents are alive
             if (hero.IsAlive && monster.IsAlive)
             {
+                //if both opponets health is still a positive number
                 while (hero.Health > -1 && monster.Health > -1)
                 {
+                    //whomever has the highest initiative can strike first
                     if (hero.Initiative > monster.Initiative)
                     {
                         Attacking(hero, monster);
@@ -36,6 +39,7 @@ namespace LuboTheHero
 
                 }
 
+              /*
                 if (hero.Health <= -1)
                 {
                     hero.IsAlive = false;
@@ -45,10 +49,12 @@ namespace LuboTheHero
                 {
                     monster.IsAlive = false;
                     Console.WriteLine("{0} won the fight", hero.Name);
-                }
+                } */
             }
         }
 
+
+        
         public void Attacking(Hero hero, Monster monster)
         {
             if (hero.IsDefending != true)
