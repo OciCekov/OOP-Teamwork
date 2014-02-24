@@ -21,7 +21,7 @@ namespace LuboTheHero
             this.Health = 8 + this.Strenght;
             this.Mana = 10 + this.Inteligence;
             this.Attack = (byte)(this.Dexterity + 1);
-            this.PhysicalDamage = this.Strenght; //TO DO add item damage
+            this.PhysicalDamage = this.Strenght; //TODO add item damage
             this.SpellDamage = (byte)(1 + this.Inteligence);
             this.ExperiencePoints = 1;
 
