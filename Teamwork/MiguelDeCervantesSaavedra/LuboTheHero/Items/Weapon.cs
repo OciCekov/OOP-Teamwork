@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero.Items
 {
+    using System.Collections.Generic;
+
     public abstract class Weapon : EquippableItem
     {
         private int minDamage; // v to string 6te se izpisva Damag: 1-4

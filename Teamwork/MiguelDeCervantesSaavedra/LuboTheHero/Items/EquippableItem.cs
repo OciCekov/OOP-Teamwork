@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero.Items
 {
+    using System.Collections.Generic;
     public abstract class EquippableItem :Item
     {
         public string ClassConstraint { get; protected set; }

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero.Items
 {
+    using System.Collections.Generic;
     class BodyArmour: Armour
     {
         public BodyArmour(string name, int defence, List<KeyValuePair<string, uint>> requirements)
