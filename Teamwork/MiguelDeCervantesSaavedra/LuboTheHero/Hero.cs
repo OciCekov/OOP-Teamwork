@@ -10,6 +10,7 @@ namespace LuboTheHero
     public class Hero : Creature, ICreature
     {
         //public Inventory MyInventory { get; set; }
+        public List<Spell> Spells { get; protected set; } //added by Ivo
         public List<Item> equippedInventar;
         public List<Item> backpackInventar;
 
@@ -40,6 +41,7 @@ namespace LuboTheHero
         public Hero()
             : base()
         {
+            this.Spells = new List<Spell>(); //added by Ivo
         }
 
         //a method which determines wheter or not the two oppnents can start a fight
@@ -57,11 +59,15 @@ namespace LuboTheHero
                     {
                         Attacking(hero, monster);
                         Defending(hero, monster);
+                        //tova ne sam siguren dali e za tuk
+                        
                     }
                     else
                     {
                         Defending(hero, monster);
                         Attacking(hero, monster);
+                        //ili tuk
+                        
                     }
 
                 }
@@ -102,6 +108,7 @@ namespace LuboTheHero
                     monster.IsDefending = false;
                 }
             }
+            UpdateHero();//added by ivo
         }
         public void Defending(Hero hero, Monster monster)
         {
@@ -202,6 +209,35 @@ namespace LuboTheHero
         public bool CheckClassConstraints(EquippableItem item) //moje i bez reflection ako napravim pole heroType v Hero
         {
             return this.GetType().Name == item.ClassConstraint;
+        }
+
+        //Added by Ivo, for magig updates
+        public void UpdateHero()
+        {
+            foreach (var spell in Spells)
+            {
+                if (spell is BashSpell && spell.IsCasted == true)
+                {
+                    spell.Target.PhysicalDamage -= 5;
+                    spell.IsCasted = false;
+                }
+                if (spell is BloodBurstSpell && spell.IsCasted == true)
+                {
+                    spell.Target.Health -= 5;
+                    spell.IsCasted = false;
+                }
+                if (spell is FreezeSpell && spell.IsCasted == true)
+                {
+                    spell.Target.PhysicalDamage = (byte)FreezeSpell.initialAttackPoints;
+                    FreezeSpell.initialAttackPoints = 0;
+                    spell.IsCasted = false;
+                }
+            }
+        }
+
+        public virtual void CastSpell(Creature fighter, Spell spell)
+        {
+            spell.CastOn(fighter);
         }
 
     }
