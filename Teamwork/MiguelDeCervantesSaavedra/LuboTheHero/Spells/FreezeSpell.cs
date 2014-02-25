@@ -1,4 +1,5 @@
 ﻿
+//This is Wizzard Spell. Freezes opponent till next phisical attack, and makes physical dmg
 namespace LuboTheHero
 {
     class FreezeSpell : Spell

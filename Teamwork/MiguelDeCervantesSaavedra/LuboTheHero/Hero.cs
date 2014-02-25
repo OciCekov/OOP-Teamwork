@@ -9,6 +9,8 @@ namespace LuboTheHero
 {
     public class Hero : Creature, ICreature
     {
+        public const int returnInitialStateOfDamage = 5; //added by Ivo
+        public const int returnInitialStateOfHealth = 5; //added by ivo
         //public Inventory MyInventory { get; set; }
         public List<Spell> Spells { get; protected set; } //added by Ivo
         public List<Item> equippedInventar;
@@ -58,16 +60,12 @@ namespace LuboTheHero
                     if (hero.Initiative > monster.Initiative)
                     {
                         Attacking(hero, monster);
-                        Defending(hero, monster);
-                        //tova ne sam siguren dali e za tuk
-                        
+                        Defending(hero, monster);         
                     }
                     else
                     {
                         Defending(hero, monster);
-                        Attacking(hero, monster);
-                        //ili tuk
-                        
+                        Attacking(hero, monster);                    
                     }
 
                 }
@@ -211,19 +209,19 @@ namespace LuboTheHero
             return this.GetType().Name == item.ClassConstraint;
         }
 
-        //Added by Ivo, for magig updates
+        //Added by Ivo, for magig updates, terminates the duration of magic after the next physical attack
         public void UpdateHero()
         {
             foreach (var spell in Spells)
             {
                 if (spell is BashSpell && spell.IsCasted == true)
                 {
-                    spell.Target.PhysicalDamage -= 5;
+                    spell.Target.PhysicalDamage -= returnInitialStateOfDamage;
                     spell.IsCasted = false;
                 }
                 if (spell is BloodBurstSpell && spell.IsCasted == true)
                 {
-                    spell.Target.Health -= 5;
+                    spell.Target.Health -= returnInitialStateOfHealth;
                     spell.IsCasted = false;
                 }
                 if (spell is FreezeSpell && spell.IsCasted == true)
@@ -235,6 +233,7 @@ namespace LuboTheHero
             }
         }
 
+        //added by ivo - heroes cast spells with it.
         public virtual void CastSpell(Creature fighter, Spell spell)
         {
             spell.CastOn(fighter);

@@ -1,4 +1,5 @@
 ﻿
+//This is a Wizzard spell. Suckes the mana of the opponent
 namespace LuboTheHero
 {
     using System;

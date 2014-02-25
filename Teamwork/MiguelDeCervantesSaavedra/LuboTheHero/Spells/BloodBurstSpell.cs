@@ -1,4 +1,5 @@
 ﻿
+//this is fighter spell; adds 5 to health until next physical attack
 namespace LuboTheHero
 {
 

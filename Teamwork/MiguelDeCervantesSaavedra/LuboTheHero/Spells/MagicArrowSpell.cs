@@ -1,4 +1,5 @@
 ﻿
+//This is Range Hero spell. Adds aditional damage
 namespace LuboTheHero
 {
     

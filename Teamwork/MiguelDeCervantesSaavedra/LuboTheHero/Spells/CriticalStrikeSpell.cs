@@ -1,4 +1,5 @@
 ﻿
+//this is Range Hero spell; Adds 50% chanse to do double dmg
 namespace LuboTheHero
 {
     using System;
