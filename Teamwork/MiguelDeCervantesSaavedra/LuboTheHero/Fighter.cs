@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
+    using LuboTheHero.UIClasses;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+
     public class Fighter : Hero, IRenderable, IMovable
     {
         #region Fighter images

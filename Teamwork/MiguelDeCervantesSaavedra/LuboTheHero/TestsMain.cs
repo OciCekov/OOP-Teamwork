@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LuboTheHero.EvilCreatures;
-using System.Threading;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
+    using System;
+    using System.Collections.Generic;        
+    using LuboTheHero.EvilCreatures;
+    using System.Threading;
+    using LuboTheHero.UIClasses;
+    using System.Text;
+
     class TestsMain
     {
         private const int GameScreenHeight = 30;
@@ -84,11 +83,11 @@ namespace LuboTheHero
                         ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
                     }
                 }
+                else if (pressedKey.Key == ConsoleKey.Escape)
+                {
+                    Environment.Exit(0);
+                }
             }
-
-            //if (Console.ReadKey(true).Key == ConsoleKey.Escape)
-            //break;
-            //}
         }
 
         public static void Main()

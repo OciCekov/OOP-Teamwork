@@ -1,8 +1,9 @@
 ﻿namespace LuboTheHero
 {
     using System;
+    using LuboTheHero.UIClasses;
 
-    public abstract class Creature : ICreature, IMovable, IRenderable
+    public abstract class Creature : IMovable, IRenderable
     {
         private string name;
         private byte level;
@@ -42,8 +43,7 @@
         public byte Level { get; set; }
 
         public char[,] CurrentImage { get; set; }
-
-        #region Unused stuff
+        
         //abilities
         public byte Strenght { get; set; }
 
@@ -89,8 +89,7 @@
 
         public bool IsAttacking { get; protected set; }
 
-        public bool IsDefending { get; protected set; }
-        #endregion
+        public bool IsDefending { get; protected set; }        
 
         public MatrixCoords Position { get; protected set; }
 

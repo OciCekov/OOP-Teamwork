@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Castle.cs" />
     <Compile Include="CharacterSheet.cs" />
-    <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="UIClasses\ConsoleRenderer.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="EvilCreatures\BloodHound.cs" />
@@ -55,11 +55,10 @@
     <Compile Include="EvilCreatures\ViciousFlower.cs" />
     <Compile Include="Fighter.cs" />
     <Compile Include="Hero.cs" />
-    <Compile Include="ICreature.cs" />
     <Compile Include="IHero.cs" />
     <Compile Include="IMovable.cs" />
-    <Compile Include="IRenderable.cs" />
-    <Compile Include="IRenderer.cs" />
+    <Compile Include="UIClasses\IRenderable.cs" />
+    <Compile Include="UIClasses\IRenderer.cs" />
     <Compile Include="ISkillsFighter.cs" />
     <Compile Include="Items\Armour.cs" />
     <Compile Include="Items\BodyArmour.cs" />

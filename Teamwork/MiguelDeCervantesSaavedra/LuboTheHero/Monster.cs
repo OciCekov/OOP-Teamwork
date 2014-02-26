@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    public class Monster : Creature, ICreature
+    public class Monster : Creature
     {
         public Monster(MatrixCoords position, int health, byte physicalDamage, byte spellDamge, byte initiative, int lineofSight)
             : base(position, health, physicalDamage, spellDamge, initiative, lineofSight)

@@ -1,5 +1,4 @@
-﻿
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
     using System;
     using System.Collections.Generic;

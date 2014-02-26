@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;            
     using LuboTheHero.Items;
+    using LuboTheHero.UIClasses;
 
     public abstract class Hero : Creature, IHero, IRenderable, IMovable
     {
@@ -201,7 +202,7 @@
 
             for (int row = newHeroTopLeft.Row; row < lastRow; row++)
             {
-                for (int col = newHeroTopLeft.Col - 1; col < lastCol; col++)
+                for (int col = newHeroTopLeft.Col - Castle.WALL_WIDTH; col < lastCol; col++)
                 {
                     if (currentRoom[row, col] != ' ')
                     {
