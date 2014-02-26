@@ -43,59 +43,6 @@
   <ItemGroup>
     <Compile Include="Castle.cs" />
     <Compile Include="CharacterSheet.cs" />
-    <Compile Include="Properties\Castle.cs" />
-    <Compile Include="Properties\CharacterSheet.cs" />
-    <Compile Include="Properties\Creature.cs" />
-    <Compile Include="Properties\Engine.cs" />
-    <Compile Include="Properties\EvilCreatures\BloodHound.cs" />
-    <Compile Include="Properties\EvilCreatures\HellSnake.cs" />
-    <Compile Include="Properties\EvilCreatures\KillerBiever.cs" />
-    <Compile Include="Properties\EvilCreatures\MudShark.cs" />
-    <Compile Include="Properties\EvilCreatures\SpikedTurtle.cs" />
-    <Compile Include="Properties\EvilCreatures\UnicornOfDeath.cs" />
-    <Compile Include="Properties\EvilCreatures\ViciousFlower.cs" />
-    <Compile Include="Properties\Fighter.cs" />
-    <Compile Include="Properties\Hero.cs" />
-    <Compile Include="Properties\IHero.cs" />
-    <Compile Include="Properties\IMovable.cs" />
-    <Compile Include="Properties\ISkillsFighter.cs" />
-    <Compile Include="Properties\Items\Armour.cs" />
-    <Compile Include="Properties\Items\BodyArmour.cs" />
-    <Compile Include="Properties\Items\Boots.cs" />
-    <Compile Include="Properties\Items\CannotEquipItemException.cs" />
-    <Compile Include="Properties\Items\EquippableItem.cs" />
-    <Compile Include="Properties\Items\Gloves.cs" />
-    <Compile Include="Properties\Items\HealthPotion.cs" />
-    <Compile Include="Properties\Items\Helmet.cs" />
-    <Compile Include="Properties\Items\Item.cs" />
-    <Compile Include="Properties\Items\ItemType.cs" />
-    <Compile Include="Properties\Items\ManaPotion.cs" />
-    <Compile Include="Properties\Items\MeleeWeapon.cs" />
-    <Compile Include="Properties\Items\Potion.cs" />
-    <Compile Include="Properties\Items\RangedWeapon.cs" />
-    <Compile Include="Properties\Items\Ring.cs" />
-    <Compile Include="Properties\Items\SkillType.cs" />
-    <Compile Include="Properties\Items\StaffWeapon.cs" />
-    <Compile Include="Properties\Items\UsableItems.cs" />
-    <Compile Include="Properties\Items\UserClassType.cs" />
-    <Compile Include="Properties\Items\Weapon.cs" />
-    <Compile Include="Properties\MatrixCoords.cs" />
-    <Compile Include="Properties\Monster.cs" />
-    <Compile Include="Properties\Ranger.cs" />
-    <Compile Include="Properties\Spells\BashSpell.cs" />
-    <Compile Include="Properties\Spells\BloodBurstSpell.cs" />
-    <Compile Include="Properties\Spells\CriticalStrikeSpell.cs" />
-    <Compile Include="Properties\Spells\ExtensionMethod.cs" />
-    <Compile Include="Properties\Spells\FreezeSpell.cs" />
-    <Compile Include="Properties\Spells\MagicArrowSpell.cs" />
-    <Compile Include="Properties\Spells\ManaSuckSpell.cs" />
-    <Compile Include="Properties\Spells\Spell.cs" />
-    <Compile Include="Properties\TestsMain.cs" />
-    <Compile Include="Properties\UIClasses\ConsoleRenderer.cs" />
-    <Compile Include="Properties\UIClasses\IRenderable.cs" />
-    <Compile Include="Properties\UIClasses\IRenderer.cs" />
-    <Compile Include="Properties\Wizard.cs" />
-    <Compile Include="UIClasses\ConsoleRenderer.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="EvilCreatures\BloodHound.cs" />
@@ -109,8 +56,6 @@
     <Compile Include="Hero.cs" />
     <Compile Include="IHero.cs" />
     <Compile Include="IMovable.cs" />
-    <Compile Include="UIClasses\IRenderable.cs" />
-    <Compile Include="UIClasses\IRenderer.cs" />
     <Compile Include="ISkillsFighter.cs" />
     <Compile Include="Items\Armour.cs" />
     <Compile Include="Items\BodyArmour.cs" />
@@ -134,7 +79,6 @@
     <Compile Include="Items\Weapon.cs" />
     <Compile Include="MatrixCoords.cs" />
     <Compile Include="Monster.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ranger.cs" />
     <Compile Include="Spells\BashSpell.cs" />
     <Compile Include="Spells\BloodBurstSpell.cs" />
@@ -145,14 +89,18 @@
     <Compile Include="Spells\ManaSuckSpell.cs" />
     <Compile Include="Spells\Spell.cs" />
     <Compile Include="TestsMain.cs" />
+    <Compile Include="UIClasses\ConsoleRenderer.cs" />
+    <Compile Include="UIClasses\IRenderable.cs" />
+    <Compile Include="UIClasses\IRenderer.cs" />
     <Compile Include="Wizard.cs" />
+    <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram.cd" />
-    <None Include="Properties\App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
