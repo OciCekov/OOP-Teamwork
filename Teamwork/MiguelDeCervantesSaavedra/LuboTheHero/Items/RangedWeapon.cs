@@ -4,8 +4,8 @@
 
     public class RangedWeapon : Weapon
     {
-        public RangedWeapon(string name, int minDmg, int maxDmg, List<KeyValuePair<string, uint>> requirements)
-            : base(name, "rangedWeapon", minDmg, maxDmg, "Ranger", requirements)
+        public RangedWeapon(string name, int minDmg, int maxDmg, List<KeyValuePair<SkillType, uint>> requirements)
+            : base(name, ItemType.rangedWeapon, minDmg, maxDmg, UserClassType.Ranger, requirements)
         { }
     }
 }

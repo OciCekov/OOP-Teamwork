@@ -11,20 +11,21 @@ namespace LuboTheHero
     {
         public const int returnInitialStateOfDamage = 5; //added by Ivo
         public const int returnInitialStateOfHealth = 5; //added by ivo
-        //public Inventory MyInventory { get; set; }
+        public const int BacpackCapacity = 50; //added by Tsveti
+
         public List<Spell> Spells { get; protected set; } //added by Ivo
-        public List<Item> equippedInventar;
+        public List<EquippableItem> equippedInventar; 
         public List<Item> backpackInventar;
 
-        public static KeyValuePair<string, uint>[] ItemRestrictions = { 
-                                                                                new KeyValuePair<string, uint> ("bodyArmour",1),
-                                                                                new KeyValuePair<string, uint> ("helmet",1),
-                                                                                new KeyValuePair<string, uint> ("boots",1),
-                                                                                new KeyValuePair<string, uint> ("gloves",1),
-                                                                                new KeyValuePair<string, uint> ("ring",10),
-                                                                                new KeyValuePair<string, uint> ("meleeWeapon",2),
-                                                                                new KeyValuePair<string, uint> ("rangedWeapon",1),
-                                                                                new KeyValuePair<string, uint> ("staffWeapon",1)
+        public static KeyValuePair<ItemType, uint>[] ItemRestrictions = { 
+                                                                                new KeyValuePair<ItemType, uint> (ItemType.bodyArmour,1),
+                                                                                new KeyValuePair<ItemType, uint> (ItemType.helmet,1),
+                                                                                new KeyValuePair<ItemType, uint> (ItemType.boots,1),
+                                                                                new KeyValuePair<ItemType, uint> (ItemType.gloves,1),
+                                                                                new KeyValuePair<ItemType, uint> (ItemType.ring,10),
+                                                                                new KeyValuePair<ItemType, uint> (ItemType.meleeWeapon,2),
+                                                                                new KeyValuePair<ItemType, uint> (ItemType.rangedWeapon,1),
+                                                                                new KeyValuePair<ItemType, uint> (ItemType.staffWeapon,1)
                                                                            };
 
 
@@ -34,7 +35,7 @@ namespace LuboTheHero
             set { backpackInventar = value; }
         }
 
-        public List<Item> EquippedInventar
+        public List<EquippableItem> EquippedInventar
         {
             get { return equippedInventar; }
             set { equippedInventar = value; }
@@ -129,7 +130,7 @@ namespace LuboTheHero
             }
         }
 
-        public void Equip(EquippableItem itemToEquip)
+        public void Equip(EquippableItem itemToEquip) //Equip item from the backpack to the hero if the item meets requirements
         {
             int countItemTypeEquipped = 0;
 
@@ -158,7 +159,50 @@ namespace LuboTheHero
             }
         }
 
-        public uint TypeAllowedNumber(Item item)
+        public void UnEquip(EquippableItem item)  //Unequip item from the hero and put it in the backpack.
+        {
+            if (!(equippedInventar.Contains(item)))
+            {
+                Console.WriteLine("This item is not equiped.");
+            }
+            else if (backpackInventar.Count >= BacpackCapacity)
+            {
+                Console.WriteLine("This equipment can not be unequiped because your backpack is full.");
+                Console.WriteLine("Please remove something from the backpack and try again.");
+            }
+            else
+            {
+                equippedInventar.Remove(item);
+                backpackInventar.Add(item);
+            }
+        }
+
+        public void Drop(Item item) //Drop item from the backpack to the ground
+        {
+            if (!(backpackInventar.Contains(item)))
+            {
+                Console.WriteLine("This item is not in your backpack.");
+            }
+            else
+            {
+                backpackInventar.Remove(item);
+            }
+        }
+
+        public void PickUp(Item item) //Pick up item from the ground if there is space in your backpack.
+        {
+            if (backpackInventar.Count >= BacpackCapacity)
+            {
+                Console.WriteLine("You can't get this item because your backpack is full.");
+                Console.WriteLine("Please remove something from the backpack and try again.");
+            }
+            else
+            {
+                backpackInventar.Add(item);
+            }
+        }
+
+        public uint TypeAllowedNumber(Item item) //check if the limit for this item type is reached
         {
             foreach (var pair in ItemRestrictions)
             {
@@ -171,29 +215,29 @@ namespace LuboTheHero
             return uint.MaxValue;
         }
 
-        public bool CheckItemRequiremets(EquippableItem item)
+        public bool CheckItemRequiremets(EquippableItem item) //check if the hero meets the skill requirements for this item
         {
             foreach (var pair in item.Requirements)
             {
                 switch (pair.Key)
                 {
-                    case "Level":
+                    case SkillType.Level:
                         if (this.Level < pair.Value)
                             return false;
                         break;
-                    case "Stregth":
+                    case SkillType.Strenght:
                         if (this.Strenght < pair.Value)
                             return false;
                         break;
-                    case "Dexterity":
+                    case SkillType.Dexterity:
                         if (this.Dexterity < pair.Value)
                             return false;
                         break;
-                    case "Inteligence":
+                    case SkillType.Inteligence:
                         if (this.Inteligence < pair.Value)
                             return false;
                         break;
-                    case "Wisdom":
+                    case SkillType.Wisdom:
                         if (this.Wisdom < pair.Value)
                             return false;
                         break;
@@ -204,9 +248,9 @@ namespace LuboTheHero
             return true;
         }
 
-        public bool CheckClassConstraints(EquippableItem item) //moje i bez reflection ako napravim pole heroType v Hero
+        public bool CheckClassConstraints(EquippableItem item) //check if the hero meets User Class requirements for this item
         {
-            return this.GetType().Name == item.ClassConstraint;
+            return item.ClassConstraints == UserClassType.All || this.GetType().Name == item.ClassConstraints.ToString();
         }
 
         //Added by Ivo, for magig updates, terminates the duration of magic after the next physical attack
