@@ -62,17 +62,17 @@
 
         public override char[,] GetImage()
         {
-            if (this.DeltaPosition.Equals(MatrixCoords.LEFT_VECTOR))
+            if (this.DeltaPosition.Equals(MatrixCoords.LeftVector))
             {
                 this.CurrentImage = LeftMatrix;
                 return LeftMatrix;
             }
-            else if (this.DeltaPosition.Equals(MatrixCoords.RIGHT_VECTOR))
+            else if (this.DeltaPosition.Equals(MatrixCoords.RightVector))
             {
                 this.CurrentImage = RightMatrix;
                 return RightMatrix;
             }
-            else if (this.DeltaPosition.Equals(MatrixCoords.DOWN_VECTOR))
+            else if (this.DeltaPosition.Equals(MatrixCoords.DownVector))
             {
                 if (this.CurrentImage == RightDownMatrix || this.CurrentImage == RightUpMatrix || this.CurrentImage == RightMatrix)
                 {

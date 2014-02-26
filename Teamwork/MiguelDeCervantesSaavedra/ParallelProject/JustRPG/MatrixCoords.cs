@@ -3,12 +3,7 @@
     using System;
 
     public struct MatrixCoords
-    {
-        public static readonly MatrixCoords UP_VECTOR = new MatrixCoords(-1, 0);
-        public static readonly MatrixCoords DOWN_VECTOR = new MatrixCoords(1, 0);
-        public static readonly MatrixCoords LEFT_VECTOR = new MatrixCoords(0, -1);
-        public static readonly MatrixCoords RIGHT_VECTOR = new MatrixCoords(0, 1);
-
+    {       
         public int Row { get; set; }
         public int Col { get; set; }
 
@@ -17,6 +12,38 @@
         {
             this.Row = row;
             this.Col = col;
+        }
+
+        public static MatrixCoords UpVector
+        {
+            get
+            {
+                return new MatrixCoords(-1, 0);
+            }
+        }
+
+        public static MatrixCoords DownVector
+        {
+            get
+            {
+                return new MatrixCoords(1, 0);
+            }
+        }
+
+        public static MatrixCoords LeftVector
+        {
+            get
+            {
+                return new MatrixCoords(0, -1);
+            }
+        }
+
+        public static MatrixCoords RightVector
+        {
+            get
+            {
+                return new MatrixCoords(0, 1);
+            }
         }
 
         public static MatrixCoords operator +(MatrixCoords a, MatrixCoords b)
@@ -42,7 +69,7 @@
             MatrixCoords objAsMatrixCoords = (MatrixCoords)obj;
 
             return objAsMatrixCoords.Row == this.Row && objAsMatrixCoords.Col == this.Col;
-        }        
+        }
 
         public override int GetHashCode()
         {

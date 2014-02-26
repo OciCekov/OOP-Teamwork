@@ -43,7 +43,7 @@
 
                     if (pressedKey.Key == ConsoleKey.LeftArrow)
                     {
-                        hero.DeltaPosition = MatrixCoords.LEFT_VECTOR;
+                        hero.DeltaPosition = MatrixCoords.LeftVector;
                         bool[] move = hero.CheckIfMoveIsPossible(firstLevelCastle, hero.DeltaPosition);
                         if (move[0] == true)
                         {
@@ -56,7 +56,7 @@
                     }
                     else if (pressedKey.Key == ConsoleKey.RightArrow)
                     {
-                        hero.DeltaPosition = MatrixCoords.RIGHT_VECTOR;
+                        hero.DeltaPosition = MatrixCoords.RightVector;
                         bool[] move = hero.CheckIfMoveIsPossible(firstLevelCastle, hero.DeltaPosition);
                         if (move[0] == true)
                         {
@@ -69,7 +69,7 @@
                     }
                     else if (pressedKey.Key == ConsoleKey.UpArrow)
                     {
-                        hero.DeltaPosition = MatrixCoords.UP_VECTOR;
+                        hero.DeltaPosition = MatrixCoords.UpVector;
                         bool[] move = hero.CheckIfMoveIsPossible(firstLevelCastle, hero.DeltaPosition);
                         if (move[0] == true)
                         {
@@ -82,7 +82,7 @@
                     }
                     else if (pressedKey.Key == ConsoleKey.DownArrow)
                     {
-                        hero.DeltaPosition = MatrixCoords.DOWN_VECTOR;
+                        hero.DeltaPosition = MatrixCoords.DownVector;
                         bool[] move = hero.CheckIfMoveIsPossible(firstLevelCastle, hero.DeltaPosition);
                         if (move[0] == true)
                         {
