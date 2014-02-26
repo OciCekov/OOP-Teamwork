@@ -1,0 +1,11 @@
+C:\programming\OOPConsoleGameTest\Hero\bin\Debug\Hero.exe.config
+C:\programming\OOPConsoleGameTest\Hero\bin\Debug\Hero.exe
+C:\programming\OOPConsoleGameTest\Hero\bin\Debug\Hero.pdb
+C:\programming\OOPConsoleGameTest\Hero\obj\Debug\Hero.exe
+C:\programming\OOPConsoleGameTest\Hero\obj\Debug\Hero.pdb
+C:\Users\EMA\Desktop\OOPConsoleGameTest\Hero\bin\Debug\Hero.exe.config
+C:\Users\EMA\Desktop\OOPConsoleGameTest\Hero\obj\Debug\Hero.exe
+C:\Users\EMA\Desktop\OOPConsoleGameTest\Hero\obj\Debug\Hero.pdb
+C:\Users\EMA\Desktop\OOPConsoleGameTest\Hero\bin\Debug\Hero.exe
+C:\Users\EMA\Desktop\OOPConsoleGameTest\Hero\bin\Debug\Hero.pdb
+C:\Users\EMA\Desktop\OOPConsoleGameTest\Hero\obj\Debug\Hero.csprojResolveAssemblyReference.cache

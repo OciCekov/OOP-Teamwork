@@ -1,0 +1,6 @@
+C:\Users\EMA\Documents\GitHub\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\bin\Debug\LuboTheHero.exe.config
+C:\Users\EMA\Documents\GitHub\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\bin\Debug\LuboTheHero.exe
+C:\Users\EMA\Documents\GitHub\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\bin\Debug\LuboTheHero.pdb
+C:\Users\EMA\Documents\GitHub\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\obj\Debug\LuboTheHero.csprojResolveAssemblyReference.cache
+C:\Users\EMA\Documents\GitHub\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\obj\Debug\LuboTheHero.exe
+C:\Users\EMA\Documents\GitHub\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\obj\Debug\LuboTheHero.pdb
