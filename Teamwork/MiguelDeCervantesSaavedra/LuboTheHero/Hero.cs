@@ -201,7 +201,7 @@
 
             for (int row = newHeroTopLeft.Row; row < lastRow; row++)
             {
-                for (int col = newHeroTopLeft.Col; col < lastCol; col++)
+                for (int col = newHeroTopLeft.Col - 1; col < lastCol; col++)
                 {
                     if (currentRoom[row, col] != ' ')
                     {
