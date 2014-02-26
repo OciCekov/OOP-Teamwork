@@ -1,26 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
+    using System;
+
     public struct MatrixCoords
-    {
-        public static readonly MatrixCoords UP_VECTOR = new MatrixCoords(-1, 0);
-        public static readonly MatrixCoords DOWN_VECTOR = new MatrixCoords(1, 0);
-        public static readonly MatrixCoords LEFT_VECTOR = new MatrixCoords(0, -1);
-        public static readonly MatrixCoords RIGHT_VECTOR = new MatrixCoords(0, 1);
-
-        public int Row { get; set; }
-        public int Col { get; set; }
-
+    {                
         public MatrixCoords(int row, int col)
             : this()
         {
             this.Row = row;
             this.Col = col;
+        }
+
+        public int Row { get; set; }
+
+        public int Col { get; set; }
+
+        public static MatrixCoords UpVector
+        {
+            get
+            {
+                return new MatrixCoords(-1, 0);
+            }
+        }
+
+        public static MatrixCoords DownVector
+        {
+            get
+            {
+                return new MatrixCoords(1, 0);
+            }
+        }
+
+        public static MatrixCoords LeftVector
+        {
+            get
+            {
+                return new MatrixCoords(0, -1);
+            }
+        }
+
+        public static MatrixCoords RightVector
+        {
+            get
+            {
+                return new MatrixCoords(0, 1);
+            }
         }
 
         public static MatrixCoords operator +(MatrixCoords a, MatrixCoords b)

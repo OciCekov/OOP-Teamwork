@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
-    interface IRenderer
+    public interface IRenderer
     {
-        void EnqueueForRendering(dynamic obj);
+        void EnqueueForRendering(IRenderable obj);
 
         void RenderAll();
-
+        
         void ClearQueue();
     }
 }

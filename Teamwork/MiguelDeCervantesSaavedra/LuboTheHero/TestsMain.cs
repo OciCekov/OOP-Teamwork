@@ -10,8 +10,90 @@ namespace LuboTheHero
 {
     class TestsMain
     {
+        private const int GameScreenHeight = 30;
+        private const int GameScreenWidth = 120;
+
+        private static void SetConsoleSettings()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WindowHeight = GameScreenHeight;
+            Console.BufferHeight = GameScreenHeight;
+            Console.WindowWidth = GameScreenWidth;
+            Console.BufferWidth = GameScreenWidth;
+        }
+
+        private static void ReadKeyInput(Hero hero, Castle castle)
+        {
+            //while (true)
+            //{
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+
+                while (Console.KeyAvailable) Console.ReadKey(true);
+
+                if (pressedKey.Key == ConsoleKey.LeftArrow)
+                {
+                    hero.DeltaPosition = MatrixCoords.LeftVector;
+                    bool[] move = hero.CheckIfMoveIsPossible(castle, hero.DeltaPosition);
+                    if (move[0] == true)
+                    {
+                        hero.Move();
+                    }
+                    else if (move[0] == false && move[1] == true)
+                    {
+                        ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
+                    }
+                }
+                else if (pressedKey.Key == ConsoleKey.RightArrow)
+                {
+                    hero.DeltaPosition = MatrixCoords.RightVector;
+                    bool[] move = hero.CheckIfMoveIsPossible(castle, hero.DeltaPosition);
+                    if (move[0] == true)
+                    {
+                        hero.Move();
+                    }
+                    else if (move[0] == false && move[1] == true)
+                    {
+                        ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
+                    }
+                }
+                else if (pressedKey.Key == ConsoleKey.UpArrow)
+                {
+                    hero.DeltaPosition = MatrixCoords.UpVector;
+                    bool[] move = hero.CheckIfMoveIsPossible(castle, hero.DeltaPosition);
+                    if (move[0] == true)
+                    {
+                        hero.Move();
+                    }
+                    else if (move[0] == false && move[1] == true)
+                    {
+                        ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
+                    }
+                }
+                else if (pressedKey.Key == ConsoleKey.DownArrow)
+                {
+                    hero.DeltaPosition = MatrixCoords.DownVector;
+                    bool[] move = hero.CheckIfMoveIsPossible(castle, hero.DeltaPosition);
+                    if (move[0] == true)
+                    {
+                        hero.Move();
+                    }
+                    else if (move[0] == false && move[1] == true)
+                    {
+                        ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
+                    }
+                }
+            }
+
+            //if (Console.ReadKey(true).Key == ConsoleKey.Escape)
+            //break;
+            //}
+        }
+
         public static void Main()
         {
+            #region TESTING
             //List<KeyValuePair<string, uint>> req = new List<KeyValuePair<string, uint>>();
             //req.Add(new KeyValuePair<string, uint>("Stregth", 5));
             ////req.Add(new KeyValuePair<string, uint>("Dexterity", 0));
@@ -54,29 +136,30 @@ namespace LuboTheHero
             //wizz.Attacking(wizz, monster);
             //Console.WriteLine(monster.PhysicalDamage);
             //Console.WriteLine(monster.Health);
+            #endregion
 
+            SetConsoleSettings();
 
-            ConsoleRenderer.SetGameWindow();
             Castle firstLevelCastle = new Castle("First");
+
             ConsoleRenderer.DrawFromCharacterTxt(@"..\..\textfiles\head-up_display.txt", new MatrixCoords(0, 0));
+
+            ConsoleRenderer.DrawFromCharacterMatrix(firstLevelCastle.GetCurrentRoom(), new MatrixCoords(0, 1));
 
             var renderer = new ConsoleRenderer(Castle.ROOM_HEIGHT - 2, Castle.ROOM_WIDTH - 2);
 
             MatrixCoords temp = new MatrixCoords(17, 56);
-            Hero hero = new Fighter("Pencho", temp);
+            Hero hero = new Fighter(temp, "Pencho");
 
             while (true)
             {
-                ConsoleRenderer.ReadKeyInput(hero, firstLevelCastle);
-                renderer.EnqueueForRendering(hero);
-                //renderer.EnqueueForRendering(secondHero);
-                renderer.RenderAll();
-                //renderer.RenderAll(secondHero);
+                ReadKeyInput(hero, firstLevelCastle);
+                renderer.EnqueueForRendering(hero);                
+                renderer.RenderAll();                
                 renderer.ClearQueue();
                 Console.WriteLine();
                 Thread.Sleep(100);
             }
-
         }
     }
 }

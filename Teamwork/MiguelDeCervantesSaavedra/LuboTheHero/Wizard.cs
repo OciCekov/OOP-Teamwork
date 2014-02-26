@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
-    public class Wizard : Hero
+    public class Wizard : Hero, IHero
     {
-        public Wizard(string name)
-            : base()
+        public Wizard(MatrixCoords position, string name)
+            : base(position)
         {
             //abilities
             this.Strenght = 1;
@@ -34,6 +28,11 @@ namespace LuboTheHero
             this.SpellPoints = 1;
             this.Level = 1;
             this.Name = name;
+        }
+
+        public override char[,] GetImage()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

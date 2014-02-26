@@ -8,9 +8,6 @@ namespace LuboTheHero
 {
     public class Fighter : Hero, IRenderable, IMovable
     {
-        private const int IMAGE_WIDTH = 7; // v interface-a e sys sbyrkano ime WIDTHT zatova tova raboti, nqkoi moje da go opravi ako mu se zanimava
-        new private const int IMAGE_HEIGHT = 4;
-
         #region Fighter images
         private char[,] leftMatrix = new char[IMAGE_HEIGHT, IMAGE_WIDTH]
             {
@@ -60,32 +57,9 @@ namespace LuboTheHero
                 {' ', ' ', 'L', ' ', 'L', ' ', ' '},
             };
         #endregion
-        public char[,] LeftMatrix
-        {
-            get { return this.leftMatrix; }
-        }
-        public char[,] LeftUpMatrix
-        {
-            get { return this.leftUpMatrix; }
-        }
-        public char[,] LeftDownMatrix
-        {
-            get { return this.leftDownMatrix; }
-        }
-        public char[,] RightMatrix
-        {
-            get { return this.rightMatrix; }
-        }
-        public char[,] RightUpMatrix
-        {
-            get { return this.rightUpMatrix; }
-        }
-        public char[,] RightDownMatrix
-        {
-            get { return this.rightDownMatrix; }
-        }
-        public Fighter(string name, MatrixCoords position)
-            : base()
+
+        public Fighter(MatrixCoords position, string name)
+            : base(position)
         {
             //abilities
             this.Strenght = 3;
@@ -100,8 +74,7 @@ namespace LuboTheHero
             this.PhysicalDamage = (byte)(1 + this.Strenght); //TODO add item damage
             this.SpellDamage = 0;
             this.ExperiencePoints = 1;
-            this.initiative = (byte)(2 + this.Dexterity);
-            this.LineOfSight = 2;
+            this.Initiative = (byte)(2 + this.Dexterity);
 
             //reduction
             this.Armour = (byte)(2 + this.Dexterity); //plus items worn
@@ -114,12 +87,48 @@ namespace LuboTheHero
             this.Name = name;
 
             //this.MyInventory = new Inventory();
+
             //state
             this.IsAlive = true;
 
             //visuals
-            this.CurrentImage = RightUpMatrix;
-            this.Position = position;
+            this.CurrentImage = rightUpMatrix;
+        }
+
+        public override char[,] GetImage()
+        {
+            if (this.DeltaPosition.Equals(MatrixCoords.LeftVector))
+            {
+                this.CurrentImage = this.leftMatrix;
+            }
+            else if (this.DeltaPosition.Equals(MatrixCoords.RightVector))
+            {
+                this.CurrentImage = this.rightMatrix;
+            }
+            else if (this.DeltaPosition.Equals(MatrixCoords.DownVector))
+            {
+                if (this.CurrentImage == this.rightDownMatrix || this.CurrentImage == this.rightUpMatrix || this.CurrentImage == this.rightMatrix)
+                {
+                    this.CurrentImage = this.rightDownMatrix;
+                }
+                else
+                {
+                    this.CurrentImage = this.leftDownMatrix;
+                }
+            }
+            else
+            {
+                if (this.CurrentImage == this.rightDownMatrix || this.CurrentImage == this.rightUpMatrix || this.CurrentImage == this.rightMatrix)
+                {
+                    this.CurrentImage = this.rightUpMatrix;
+                }
+                else
+                {
+                    this.CurrentImage = this.leftUpMatrix;
+                }
+            }
+
+            return this.CurrentImage;
         }
     }
 }

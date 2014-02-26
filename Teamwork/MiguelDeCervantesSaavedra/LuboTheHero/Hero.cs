@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LuboTheHero.Items;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
-    public class Hero : Creature, ICreature, IRenderable, IMovable
+    using System;
+    using System.Collections.Generic;            
+    using LuboTheHero.Items;
+
+    public abstract class Hero : Creature, IHero, IRenderable, IMovable
     {
+        public const int IMAGE_HEIGHT = 4;
+        public const int IMAGE_WIDTH = 7;
         public const int returnInitialStateOfDamage = 5; //added by Ivo
         public const int returnInitialStateOfHealth = 5; //added by ivo
         public const int BacpackCapacity = 50; //added by Tsveti
 
-        public List<Spell> Spells { get; protected set; } //added by Ivo
-
-        // TODO : Must be an array maybe(it has some given size)
-        public List<EquippableItem> equippedInventar;
-        public List<Item> backpackInventar;
-
+        public Hero(MatrixCoords position)
+            : base(position)
+        {
+            this.Spells = new List<Spell>(); //added by Ivo
+        }
+        
         public static KeyValuePair<ItemType, uint>[] ItemRestrictions = 
         { 
             new KeyValuePair<ItemType, uint> (ItemType.bodyArmour,1),
@@ -31,105 +30,11 @@ namespace LuboTheHero
             new KeyValuePair<ItemType, uint> (ItemType.staffWeapon,1)
         };
 
-        public List<Item> BackpackInventar
-        {
-            get { return backpackInventar; }
-            set { backpackInventar = value; }
-        }
+        public List<Spell> Spells { get; protected set; } //added by Ivo                    
 
-        public List<EquippableItem> EquippedInventar
-        {
-            get { return equippedInventar; }
-            set { equippedInventar = value; }
-        }
+        public List<Item> BackpackInventar { get; set; }
 
-        public Hero()
-            : base()
-        {
-            this.Spells = new List<Spell>(); //added by Ivo
-        }
-
-        //a method which determines wheter or not the two oppnents can start a fight
-        public void Fight(Hero hero, Monster monster)
-        {
-            //if(hero.DistanceTo(monster) <= hero.lineOfSight) -- there will be a method for calculating distances between creatures
-            //if both oppnents are alive
-            if (hero.IsAlive && monster.IsAlive)
-            {
-                //if both opponets health is still a positive number
-                while (hero.Health > -1 && monster.Health > -1)
-                {
-                    //whomever has the highest initiative can strike first
-                    if (hero.Initiative > monster.Initiative)
-                    {
-                        Attacking(hero, monster);
-                        Defending(hero, monster);
-                    }
-                    else
-                    {
-                        Defending(hero, monster);
-                        Attacking(hero, monster);
-                    }
-
-                }
-
-                /*
-                  if (hero.Health <= -1)
-                  {
-                      hero.IsAlive = false;
-                      Console.WriteLine("Monster won the fight.");
-                  }
-                  if (monster.Health <= -1)
-                  {
-                      monster.IsAlive = false;
-                      Console.WriteLine("{0} won the fight", hero.Name);
-                  } */
-            }
-        }
-
-        public void Attacking(Hero hero, Monster monster)
-        {
-            if (hero.IsDefending != true)
-            {
-                //insert RandomGeneratorVariable 1-10
-                if (hero.Attack + 10 >= monster.Armour)
-                    hero.IsAttacking = true;
-                while (hero.IsAttacking)
-                {
-                    monster.IsDefending = true;
-                    if (hero.PhysicalDamage - monster.Armour > 0)
-                    {
-                        monster.Health -= (hero.PhysicalDamage - monster.Armour);
-                        Console.WriteLine("Damage done {0}", hero.PhysicalDamage - monster.Armour);
-                    }
-                    else Console.WriteLine("Miss");
-                    hero.IsAttacking = false;
-                    monster.IsDefending = false;
-                }
-            }
-            UpdateHero();//added by ivo
-        }
-
-        public void Defending(Hero hero, Monster monster)
-        {
-            if (hero.IsAttacking != true)
-            {
-                //insert RandomGeneratorVariable 1-10
-                if (hero.Armour <= monster.Attack + 10)
-                    hero.IsDefending = true;
-                while (hero.IsDefending)
-                {
-                    monster.IsAttacking = true;
-                    if (monster.PhysicalDamage - hero.Armour > 0)
-                    {
-                        hero.Health -= (monster.PhysicalDamage - hero.Armour);
-                        Console.WriteLine("Hero health left: {0}", hero.Health);
-                    }
-                    hero.IsDefending = false;
-                    monster.IsAttacking = false;
-                }
-            }
-        }
+        public List<EquippableItem> EquippedInventar { get; set; }
 
         public void Equip(EquippableItem itemToEquip) //Equip item from the backpack to the hero if the item meets requirements
         {
@@ -148,25 +53,25 @@ namespace LuboTheHero
 
             if (countItemTypeEquipped >= restriction)
             {
-                throw new CannotEquipItemException("This equipment can not be equiped because maximum allowed number of items from this type is reached.", itemToEquip, restriction);                
+                throw new CannotEquipItemException("This equipment can not be equiped because maximum allowed number of items from this type is reached.", itemToEquip, restriction);
             }
             else if (!(meetsRequirements))
             {
-                throw new CannotEquipItemException("This equipment can not be equiped because you don't meet the item requirements.", itemToEquip);                
+                throw new CannotEquipItemException("This equipment can not be equiped because you don't meet the item requirements.", itemToEquip);
             }
             else
             {
-                this.equippedInventar.Add(itemToEquip);
+                this.EquippedInventar.Add(itemToEquip);
             }
         }
 
         public void UnEquip(EquippableItem item)  //Unequip item from the hero and put it in the backpack.
         {
-            if (!(equippedInventar.Contains(item)))
+            if (!(EquippedInventar.Contains(item)))
             {
-                throw new ArgumentException("Cannot unquip item which is not equipped");                
+                throw new ArgumentException("Cannot unquip item which is not equipped");
             }
-            else if (backpackInventar.Count >= BacpackCapacity)
+            else if (BackpackInventar.Count >= BacpackCapacity)
             {
                 // TODO : MUst be an exception
                 Console.WriteLine("This equipment can not be unequiped because your backpack is full.");
@@ -174,27 +79,27 @@ namespace LuboTheHero
             }
             else
             {
-                equippedInventar.Remove(item);
-                backpackInventar.Add(item);
+                EquippedInventar.Remove(item);
+                BackpackInventar.Add(item);
             }
         }
 
         public void Drop(Item item) //Drop item from the backpack to the ground
         {
-            if (!(backpackInventar.Contains(item)))
+            if (!(BackpackInventar.Contains(item)))
             {
                 // TODO : MUst be an exception
                 Console.WriteLine("This item is not in your backpack.");
             }
             else
             {
-                backpackInventar.Remove(item);
+                BackpackInventar.Remove(item);
             }
         }
 
         public void PickUp(Item item) //Pick up item from the ground if there is space in your backpack.
         {
-            if (backpackInventar.Count >= BacpackCapacity)
+            if (BackpackInventar.Count >= BacpackCapacity)
             {
                 // TODO : MUst be an exception
                 Console.WriteLine("You can't get this item because your backpack is full.");
@@ -202,7 +107,7 @@ namespace LuboTheHero
             }
             else
             {
-                backpackInventar.Add(item);
+                BackpackInventar.Add(item);
             }
         }
 
@@ -281,10 +186,82 @@ namespace LuboTheHero
             }
         }
 
+        public bool[] CheckIfMoveIsPossible(Castle castle, MatrixCoords vector)
+        {
+            bool[] answer = new bool[2];
+            bool ableToMove = new bool();
+            bool mustChangeRoom = new bool();
+
+            char[,] currentRoom = castle.GetCurrentRoom();
+            MatrixCoords newHeroTopLeft = this.GetTopLeft() + vector;
+            //newHeroTopLeft.Col -= 1; Problem may occur here!!!!
+
+            int lastRow = Math.Min(newHeroTopLeft.Row + IMAGE_HEIGHT, currentRoom.GetLength(0));
+            int lastCol = Math.Min(newHeroTopLeft.Col + IMAGE_WIDTH, currentRoom.GetLength(1));
+
+            for (int row = newHeroTopLeft.Row; row < lastRow; row++)
+            {
+                for (int col = newHeroTopLeft.Col; col < lastCol; col++)
+                {
+                    if (currentRoom[row, col] != ' ')
+                    {
+                        ableToMove = false;
+                        mustChangeRoom = false;
+                        answer[0] = ableToMove;
+                        answer[1] = mustChangeRoom;
+                        return answer;
+                    }
+                }
+            }
+
+            if (newHeroTopLeft.Row == 0) //On upper room wall
+            {
+                ableToMove = false;
+                mustChangeRoom = true;
+                this.Position += new MatrixCoords(Castle.ROOM_HEIGHT - (IMAGE_HEIGHT + 2), 0);
+                castle.ChangeCurrentRoom(1);
+            }
+            else if (newHeroTopLeft.Col == Castle.ROOM_WIDTH - IMAGE_WIDTH + 1) //On right wall
+            {
+                ableToMove = false;
+                mustChangeRoom = true;
+                this.Position -= new MatrixCoords(0, Castle.ROOM_WIDTH - (IMAGE_WIDTH + 2));
+                castle.ChangeCurrentRoom(1);
+            }
+            else if (newHeroTopLeft.Row == Castle.ROOM_HEIGHT - IMAGE_HEIGHT) //On bottom wall
+            {
+                ableToMove = false;
+                mustChangeRoom = true;
+                this.Position -= new MatrixCoords(Castle.ROOM_HEIGHT - (IMAGE_HEIGHT + 2), 0);
+                castle.ChangeCurrentRoom(-1);
+            }
+            else if (newHeroTopLeft.Col == 0 + Castle.WALL_WIDTH) //On left wall
+            {
+                ableToMove = false;
+                mustChangeRoom = true;
+                this.Position += new MatrixCoords(0, Castle.ROOM_WIDTH - (IMAGE_WIDTH + 2));
+                castle.ChangeCurrentRoom(-1);
+            }
+            else
+            {
+                ableToMove = true;
+                mustChangeRoom = false;
+            }
+
+            answer[0] = ableToMove;
+            answer[1] = mustChangeRoom;
+            return answer;
+        }
+
         //added by ivo - heroes cast spells with it.
         public virtual void CastSpell(Creature fighter, Spell spell)
         {
             spell.CastOn(fighter);
         }
+
+        public void LevelUp()
+        {
+            throw new NotImplementedException();
+        }        
     }
 }

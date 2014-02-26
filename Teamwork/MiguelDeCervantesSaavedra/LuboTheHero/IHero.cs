@@ -2,8 +2,8 @@
 {
     using LuboTheHero.Items;
 
-    interface IHero
-    {
+    public interface IHero
+    {       
         void PickUp(Item item);
 
         void Drop(Item item);

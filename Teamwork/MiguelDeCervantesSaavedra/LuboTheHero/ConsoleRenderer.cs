@@ -7,17 +7,14 @@ using System.IO;
 
 namespace LuboTheHero
 {
-    public class ConsoleRenderer
+    public class ConsoleRenderer : IRenderer
     {
-        private const int GameScreenHeight = 30;
-        private const int GameScreenWidth = 120;
-
         private const int PLAY_FIELD_TOP = 0;
         private const int PLAY_FIELD_LEFT = 1;
 
-        int renderContextMatrixRows;
-        int renderContextMatrixCols;
-        char[,] renderContextMatrix;
+        private int renderContextMatrixRows;
+        private int renderContextMatrixCols;
+        private char[,] renderContextMatrix;
 
         public ConsoleRenderer(int playFieldConsoleRows, int playFieldConsoleCols)
         {
@@ -29,9 +26,9 @@ namespace LuboTheHero
             this.ClearQueue();
         }
 
-        public void EnqueueForRendering(dynamic obj)
+        public void EnqueueForRendering(IRenderable obj)
         {
-            char[,] objImage = GetImage(obj);
+            char[,] objImage = obj.GetImage();
 
             int imageRows = objImage.GetLength(0);
             int imageCols = objImage.GetLength(1);
@@ -114,123 +111,6 @@ namespace LuboTheHero
                     Console.Write(matrix[row, col]);
                 }
                 Console.SetCursorPosition(cursorPosition.Col, ++cursorPosition.Row);
-            }
-        }
-
-        public static void SetGameWindow()
-        {
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.WindowHeight = GameScreenHeight;
-            Console.BufferHeight = GameScreenHeight;
-            Console.WindowWidth = GameScreenWidth;
-            Console.BufferWidth = GameScreenWidth;
-        }
-        public static void ReadKeyInput(Hero hero, Castle castle)
-        {
-            //while (true)
-            //{
-            if (Console.KeyAvailable)
-            {
-                ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-
-                while (Console.KeyAvailable) Console.ReadKey(true);
-
-                if (pressedKey.Key == ConsoleKey.LeftArrow)
-                {
-                    hero.DeltaPosition = MatrixCoords.LEFT_VECTOR;
-                    bool[] move = hero.CheckIfMoveIsPossible(castle, hero.DeltaPosition);
-                    if (move[0] == true)
-                    {
-                        hero.Move();
-                    }
-                    else if (move[0] == false && move[1] == true)
-                    {
-                        ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
-                    }
-                }
-                else if (pressedKey.Key == ConsoleKey.RightArrow)
-                {
-                    hero.DeltaPosition = MatrixCoords.RIGHT_VECTOR;
-                    bool[] move = hero.CheckIfMoveIsPossible(castle, hero.DeltaPosition);
-                    if (move[0] == true)
-                    {
-                        hero.Move();
-                    }
-                    else if (move[0] == false && move[1] == true)
-                    {
-                        ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
-                    }
-                }
-                else if (pressedKey.Key == ConsoleKey.UpArrow)
-                {
-                    hero.DeltaPosition = MatrixCoords.UP_VECTOR;
-                    bool[] move = hero.CheckIfMoveIsPossible(castle, hero.DeltaPosition);
-                    if (move[0] == true)
-                    {
-                        hero.Move();
-                    }
-                    else if (move[0] == false && move[1] == true)
-                    {
-                        ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
-                    }
-                }
-                else if (pressedKey.Key == ConsoleKey.DownArrow)
-                {
-                    hero.DeltaPosition = MatrixCoords.DOWN_VECTOR;
-                    bool[] move = hero.CheckIfMoveIsPossible(castle, hero.DeltaPosition);
-                    if (move[0] == true)
-                    {
-                        hero.Move();
-                    }
-                    else if (move[0] == false && move[1] == true)
-                    {
-                        ConsoleRenderer.DrawFromCharacterMatrix(castle.GetCurrentRoom(), new MatrixCoords(0, 1));
-                    }
-                }
-            }
-
-            //if (Console.ReadKey(true).Key == ConsoleKey.Escape)
-            //break;
-            //}
-        }
-
-        private dynamic GetImage(dynamic hero)
-        {
-            if (hero.DeltaPosition.Equals(MatrixCoords.LEFT_VECTOR))
-            {
-                hero.CurrentImage = hero.LeftMatrix;
-                return hero.LeftMatrix;
-            }
-            else if (hero.DeltaPosition.Equals(MatrixCoords.RIGHT_VECTOR))
-            {
-                hero.CurrentImage = hero.RightMatrix;
-                return hero.RightMatrix;
-            }
-            else if (hero.DeltaPosition.Equals(MatrixCoords.DOWN_VECTOR))
-            {
-                if (hero.CurrentImage == hero.RightDownMatrix || hero.CurrentImage == hero.RightUpMatrix || hero.CurrentImage == hero.RightMatrix)
-                {
-                    hero.CurrentImage = hero.RightDownMatrix;
-                    return hero.RightDownMatrix;
-                }
-                else
-                {
-                    hero.CurrentImage = hero.LeftDownMatrix;
-                    return hero.LeftDownMatrix;
-                }
-            }
-            else
-            {
-                if (hero.CurrentImage == hero.RightDownMatrix || hero.CurrentImage == hero.RightUpMatrix || hero.CurrentImage == hero.RightMatrix)
-                {
-                    hero.CurrentImage = hero.RightUpMatrix;
-                    return hero.RightUpMatrix;
-                }
-                else
-                {
-                    hero.CurrentImage = hero.LeftUpMatrix;
-                    return hero.LeftUpMatrix;
-                }
             }
         }
     }

@@ -81,7 +81,6 @@
     <Compile Include="Items\UsableItems.cs" />
     <Compile Include="Items\UserClassType.cs" />
     <Compile Include="Items\Weapon.cs" />
-    <Compile Include="IVisualProperties.cs" />
     <Compile Include="MatrixCoords.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,7 +94,6 @@
     <Compile Include="Spells\ManaSuckSpell.cs" />
     <Compile Include="Spells\Spell.cs" />
     <Compile Include="TestsMain.cs" />
-    <Compile Include="VisualObject.cs" />
     <Compile Include="Wizard.cs" />
   </ItemGroup>
   <ItemGroup>

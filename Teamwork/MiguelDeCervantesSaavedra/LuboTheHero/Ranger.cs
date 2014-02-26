@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
-    public class Ranger : Hero
+    public class Ranger : Hero, IHero
     {
-        public Ranger(string name)
-            : base()
+        public Ranger(MatrixCoords position, string name)
+            : base(position)
         {
             //abilities
             this.Strenght = 2;
@@ -36,6 +30,9 @@ namespace LuboTheHero
             this.Name = name;
         }
 
-        //TODO implement levelUp() method from IHero interface
+        public override char[,] GetImage()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
