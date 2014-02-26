@@ -11,7 +11,6 @@ namespace LuboTheHero
     {
         public static void Main()
         {
-            
             //List<KeyValuePair<string, uint>> req = new List<KeyValuePair<string, uint>>();
             //req.Add(new KeyValuePair<string, uint>("Stregth", 5));
             ////req.Add(new KeyValuePair<string, uint>("Dexterity", 0));

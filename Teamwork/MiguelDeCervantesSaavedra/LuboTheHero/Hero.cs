@@ -14,20 +14,22 @@ namespace LuboTheHero
         public const int BacpackCapacity = 50; //added by Tsveti
 
         public List<Spell> Spells { get; protected set; } //added by Ivo
-        public List<EquippableItem> equippedInventar; 
+
+        // TODO : Must be an array maybe(it has some given size)
+        public List<EquippableItem> equippedInventar;
         public List<Item> backpackInventar;
 
-        public static KeyValuePair<ItemType, uint>[] ItemRestrictions = { 
-                                                                                new KeyValuePair<ItemType, uint> (ItemType.bodyArmour,1),
-                                                                                new KeyValuePair<ItemType, uint> (ItemType.helmet,1),
-                                                                                new KeyValuePair<ItemType, uint> (ItemType.boots,1),
-                                                                                new KeyValuePair<ItemType, uint> (ItemType.gloves,1),
-                                                                                new KeyValuePair<ItemType, uint> (ItemType.ring,10),
-                                                                                new KeyValuePair<ItemType, uint> (ItemType.meleeWeapon,2),
-                                                                                new KeyValuePair<ItemType, uint> (ItemType.rangedWeapon,1),
-                                                                                new KeyValuePair<ItemType, uint> (ItemType.staffWeapon,1)
-                                                                           };
-
+        public static KeyValuePair<ItemType, uint>[] ItemRestrictions = 
+        { 
+            new KeyValuePair<ItemType, uint> (ItemType.bodyArmour,1),
+            new KeyValuePair<ItemType, uint> (ItemType.helmet,1),
+            new KeyValuePair<ItemType, uint> (ItemType.boots,1),
+            new KeyValuePair<ItemType, uint> (ItemType.gloves,1),
+            new KeyValuePair<ItemType, uint> (ItemType.ring,10),
+            new KeyValuePair<ItemType, uint> (ItemType.meleeWeapon,2),
+            new KeyValuePair<ItemType, uint> (ItemType.rangedWeapon,1),
+            new KeyValuePair<ItemType, uint> (ItemType.staffWeapon,1)
+        };
 
         public List<Item> BackpackInventar
         {
@@ -61,32 +63,30 @@ namespace LuboTheHero
                     if (hero.Initiative > monster.Initiative)
                     {
                         Attacking(hero, monster);
-                        Defending(hero, monster);         
+                        Defending(hero, monster);
                     }
                     else
                     {
                         Defending(hero, monster);
-                        Attacking(hero, monster);                    
+                        Attacking(hero, monster);
                     }
 
                 }
 
-              /*
-                if (hero.Health <= -1)
-                {
-                    hero.IsAlive = false;
-                    Console.WriteLine("Monster won the fight.");
-                }
-                if (monster.Health <= -1)
-                {
-                    monster.IsAlive = false;
-                    Console.WriteLine("{0} won the fight", hero.Name);
-                } */
+                /*
+                  if (hero.Health <= -1)
+                  {
+                      hero.IsAlive = false;
+                      Console.WriteLine("Monster won the fight.");
+                  }
+                  if (monster.Health <= -1)
+                  {
+                      monster.IsAlive = false;
+                      Console.WriteLine("{0} won the fight", hero.Name);
+                  } */
             }
         }
 
-
-        
         public void Attacking(Hero hero, Monster monster)
         {
             if (hero.IsDefending != true)
@@ -109,6 +109,7 @@ namespace LuboTheHero
             }
             UpdateHero();//added by ivo
         }
+
         public void Defending(Hero hero, Monster monster)
         {
             if (hero.IsAttacking != true)
@@ -147,11 +148,11 @@ namespace LuboTheHero
 
             if (countItemTypeEquipped >= restriction)
             {
-                Console.WriteLine("This equipment can not be equiped because maximum allowed number of items from this type is reached.");
+                throw new CannotEquipItemException("This equipment can not be equiped because maximum allowed number of items from this type is reached.", itemToEquip, restriction);                
             }
             else if (!(meetsRequirements))
             {
-                Console.WriteLine("This equipment can not be equiped because you don't meet the item requirements.");
+                throw new CannotEquipItemException("This equipment can not be equiped because you don't meet the item requirements.", itemToEquip);                
             }
             else
             {
@@ -163,10 +164,11 @@ namespace LuboTheHero
         {
             if (!(equippedInventar.Contains(item)))
             {
-                Console.WriteLine("This item is not equiped.");
+                throw new ArgumentException("Cannot unquip item which is not equipped");                
             }
             else if (backpackInventar.Count >= BacpackCapacity)
             {
+                // TODO : MUst be an exception
                 Console.WriteLine("This equipment can not be unequiped because your backpack is full.");
                 Console.WriteLine("Please remove something from the backpack and try again.");
             }
@@ -181,6 +183,7 @@ namespace LuboTheHero
         {
             if (!(backpackInventar.Contains(item)))
             {
+                // TODO : MUst be an exception
                 Console.WriteLine("This item is not in your backpack.");
             }
             else
@@ -193,6 +196,7 @@ namespace LuboTheHero
         {
             if (backpackInventar.Count >= BacpackCapacity)
             {
+                // TODO : MUst be an exception
                 Console.WriteLine("You can't get this item because your backpack is full.");
                 Console.WriteLine("Please remove something from the backpack and try again.");
             }
@@ -282,6 +286,5 @@ namespace LuboTheHero
         {
             spell.CastOn(fighter);
         }
-
     }
 }

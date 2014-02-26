@@ -50,8 +50,8 @@ namespace LuboTheHero
                     Console.WriteLine("{0} won the fight", hero.Name);
                 }
             }
-
         }
+
         public void Attacking(Hero hero, Monster monster)
         {
             if (monster.IsDefending != true)
@@ -71,8 +71,8 @@ namespace LuboTheHero
                     hero.IsDefending = false;
                 }
             }
-
         }
+
         public void Defending(Hero hero, Monster monster)
         {
             if (monster.IsAttacking != true)

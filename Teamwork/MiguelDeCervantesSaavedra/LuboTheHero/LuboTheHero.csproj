@@ -59,6 +59,7 @@
     <Compile Include="Items\Armour.cs" />
     <Compile Include="Items\BodyArmour.cs" />
     <Compile Include="Items\Boots.cs" />
+    <Compile Include="Items\CannotEquipItemException.cs" />
     <Compile Include="Items\EquippableItem.cs" />
     <Compile Include="Items\Gloves.cs" />
     <Compile Include="Items\HealthPotion.cs" />
