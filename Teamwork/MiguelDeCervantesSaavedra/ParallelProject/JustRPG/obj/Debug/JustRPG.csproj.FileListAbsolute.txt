@@ -1,0 +1,5 @@
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\ParallelProject\JustRPG\bin\Debug\LuboTheHero.exe.config
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\ParallelProject\JustRPG\bin\Debug\LuboTheHero.exe
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\ParallelProject\JustRPG\bin\Debug\LuboTheHero.pdb
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\ParallelProject\JustRPG\obj\Debug\LuboTheHero.exe
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\ParallelProject\JustRPG\obj\Debug\LuboTheHero.pdb

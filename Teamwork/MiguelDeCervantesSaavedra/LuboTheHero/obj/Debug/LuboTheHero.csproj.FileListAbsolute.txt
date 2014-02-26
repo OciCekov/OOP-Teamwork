@@ -10,3 +10,9 @@ F:\ACADEMYTELERIK\moiC#programi\OOP-Teamwork\OOP-Teamwork\Teamwork\MiguelDeCerva
 F:\ACADEMYTELERIK\moiC#programi\OOP-Teamwork\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\bin\Debug\LuboTheHero.exe
 F:\ACADEMYTELERIK\moiC#programi\OOP-Teamwork\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\bin\Debug\LuboTheHero.pdb
 F:\ACADEMYTELERIK\moiC#programi\OOP-Teamwork\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\obj\Debug\LuboTheHero.csprojResolveAssemblyReference.cache
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\bin\Debug\LuboTheHero.exe.config
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\obj\Debug\LuboTheHero.exe
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\obj\Debug\LuboTheHero.pdb
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\bin\Debug\LuboTheHero.exe
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\bin\Debug\LuboTheHero.pdb
+C:\Users\Niki\teamProject\OOP-Teamwork\Teamwork\MiguelDeCervantesSaavedra\LuboTheHero\obj\Debug\LuboTheHero.csprojResolveAssemblyReference.cache
