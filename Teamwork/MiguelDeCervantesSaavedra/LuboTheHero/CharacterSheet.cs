@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    public class CharacterSheet : Creature
+    public class CharacterSheet
     {
         //abilities -- shortened so they do not interfere with similar names of variables
         string Str = "Each point here gives +1 health and +1 vitality. The ability is key for the fighter class, each point gives an addtitional +1 Attack, PhysicalDamage.";

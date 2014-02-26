@@ -2,7 +2,7 @@
 
 namespace LuboTheHero
 {
-    public abstract class Creature
+    public abstract class Creature : VisualObject
     {
         //abilities
         protected byte stregth;

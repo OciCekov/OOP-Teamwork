@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LuboTheHero.EvilCreatures;
+using System.Threading;
 
 namespace LuboTheHero
 {
@@ -55,6 +56,26 @@ namespace LuboTheHero
             //Console.WriteLine(monster.Health);
 
 
+            ConsoleRenderer.SetGameWindow();
+            Castle firstLevelCastle = new Castle("First");
+            ConsoleRenderer.DrawFromCharacterTxt(@"..\..\textfiles\head-up_display.txt", new MatrixCoords(0, 0));
+
+            var renderer = new ConsoleRenderer(Castle.ROOM_HEIGHT - 2, Castle.ROOM_WIDTH - 2);
+
+            MatrixCoords temp = new MatrixCoords(17, 56);
+            Hero hero = new Fighter("Pencho", temp);
+
+            while (true)
+            {
+                ConsoleRenderer.ReadKeyInput(hero, firstLevelCastle);
+                renderer.EnqueueForRendering(hero);
+                //renderer.EnqueueForRendering(secondHero);
+                renderer.RenderAll();
+                //renderer.RenderAll(secondHero);
+                renderer.ClearQueue();
+                Console.WriteLine();
+                Thread.Sleep(100);
+            }
 
         }
     }

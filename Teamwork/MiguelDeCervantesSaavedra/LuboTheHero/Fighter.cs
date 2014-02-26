@@ -6,9 +6,85 @@ using System.Threading.Tasks;
 
 namespace LuboTheHero
 {
-    public class Fighter : Hero
+    public class Fighter : Hero, IRenderable, IMovable
     {
-        public Fighter(string name)
+        private const int IMAGE_WIDTH = 7; // v interface-a e sys sbyrkano ime WIDTHT zatova tova raboti, nqkoi moje da go opravi ako mu se zanimava
+        new private const int IMAGE_HEIGHT = 4;
+
+        #region Fighter images
+        private char[,] leftMatrix = new char[IMAGE_HEIGHT, IMAGE_WIDTH]
+            {
+                {' ', ' ', ' ', 'H', ' ', ' ', ' '},
+                {'\u0336', '\u00F7', '/', 'V', '\\', '/', '\\'},
+                {' ',' ', '/', ' ', '\\', '\\', '/'},
+                {' ',' ', '\u02E9', ' ', '\u02E9', ' ', ' '},
+            };
+
+        private char[,] leftUpMatrix = new char[IMAGE_HEIGHT, IMAGE_WIDTH]
+            {
+                {' ', '|', ' ', 'H', ' ', ' ', ' '},
+                {' ', 'I', '/', 'V', '\\', '/', '\\'},
+                {' ', ' ', '/', ' ', '\\', '\\', '/'},
+                {' ', ' ', '\u02E9', ' ', '\u02E9', ' ', ' '},
+            };
+
+        private char[,] leftDownMatrix = new char[IMAGE_HEIGHT, IMAGE_WIDTH]
+            {
+                {' ', ' ', ' ', 'H', ' ', ' ', ' '},
+                {' ', 'I', '/', 'V', '\\', '/', '\\'},
+                {' ', '|', '/', ' ', '\\', '\\', '/'},
+                {' ', ' ', '\u02E9', ' ', '\u02E9', ' ', ' '},
+            };
+
+        private char[,] rightMatrix = new char[IMAGE_HEIGHT, IMAGE_WIDTH]
+            {
+                {' ', ' ', ' ', 'H', ' ', ' ', ' '},
+                {'/', '\\', '/', 'V', '\\', '\u00F7', '\u0336'},
+                {'\\', '/', '/', ' ', '\\', ' ', ' '},
+                {' ', ' ', 'L', ' ', 'L', ' ', ' '},
+            };
+
+        private char[,] rightUpMatrix = new char[IMAGE_HEIGHT, IMAGE_WIDTH]
+            {
+                {' ', ' ', ' ', 'H', ' ', '|', ' '},
+                {'/', '\\', '/', 'V', '\\', 'I', ' '},
+                {'\\', '/', '/', ' ', '\\', ' ', ' '},
+                {' ', ' ', 'L', ' ', 'L', ' ', ' '},
+            };
+
+        private char[,] rightDownMatrix = new char[IMAGE_HEIGHT, IMAGE_WIDTH]
+            {
+                {' ', ' ', ' ', 'H', ' ', ' ', ' '},
+                {'/', '\\', '/', 'V', '\\', 'I', ' '},
+                {'\\', '/', '/', ' ', '\\', '|', ' '},
+                {' ', ' ', 'L', ' ', 'L', ' ', ' '},
+            };
+        #endregion
+        public char[,] LeftMatrix
+        {
+            get { return this.leftMatrix; }
+        }
+        public char[,] LeftUpMatrix
+        {
+            get { return this.leftUpMatrix; }
+        }
+        public char[,] LeftDownMatrix
+        {
+            get { return this.leftDownMatrix; }
+        }
+        public char[,] RightMatrix
+        {
+            get { return this.rightMatrix; }
+        }
+        public char[,] RightUpMatrix
+        {
+            get { return this.rightUpMatrix; }
+        }
+        public char[,] RightDownMatrix
+        {
+            get { return this.rightDownMatrix; }
+        }
+        public Fighter(string name, MatrixCoords position)
             : base()
         {
             //abilities
@@ -40,6 +116,10 @@ namespace LuboTheHero
             //this.MyInventory = new Inventory();
             //state
             this.IsAlive = true;
+
+            //visuals
+            this.CurrentImage = RightUpMatrix;
+            this.Position = position;
         }
     }
 }

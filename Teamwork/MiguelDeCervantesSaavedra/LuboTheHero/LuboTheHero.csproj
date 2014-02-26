@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Castle.cs" />
     <Compile Include="CharacterSheet.cs" />
+    <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="EvilCreatures\BloodHound.cs" />
@@ -55,6 +57,9 @@
     <Compile Include="Hero.cs" />
     <Compile Include="ICreature.cs" />
     <Compile Include="IHero.cs" />
+    <Compile Include="IMovable.cs" />
+    <Compile Include="IRenderable.cs" />
+    <Compile Include="IRenderer.cs" />
     <Compile Include="ISkillsFighter.cs" />
     <Compile Include="Items\Armour.cs" />
     <Compile Include="Items\BodyArmour.cs" />
@@ -76,6 +81,8 @@
     <Compile Include="Items\UsableItems.cs" />
     <Compile Include="Items\UserClassType.cs" />
     <Compile Include="Items\Weapon.cs" />
+    <Compile Include="IVisualProperties.cs" />
+    <Compile Include="MatrixCoords.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ranger.cs" />
@@ -88,6 +95,7 @@
     <Compile Include="Spells\ManaSuckSpell.cs" />
     <Compile Include="Spells\Spell.cs" />
     <Compile Include="TestsMain.cs" />
+    <Compile Include="VisualObject.cs" />
     <Compile Include="Wizard.cs" />
   </ItemGroup>
   <ItemGroup>

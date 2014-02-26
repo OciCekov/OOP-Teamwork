@@ -7,7 +7,7 @@ using LuboTheHero.Items;
 
 namespace LuboTheHero
 {
-    public class Hero : Creature, ICreature
+    public class Hero : Creature, ICreature, IRenderable, IMovable
     {
         public const int returnInitialStateOfDamage = 5; //added by Ivo
         public const int returnInitialStateOfHealth = 5; //added by ivo
