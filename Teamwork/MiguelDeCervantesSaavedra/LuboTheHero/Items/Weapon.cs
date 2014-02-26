@@ -4,15 +4,14 @@
 
     public abstract class Weapon : EquippableItem
     {
-        private int minDamage; // v to string 6te se izpisva Damag: 1-4
-        private int maxDamage;
+        public int MinDamage { get; protected set; }
+        public int MaxDamage { get; protected set; }
 
-        public Weapon(string name, string type, int minDmg, int maxDmg, string classConstr, List<KeyValuePair<string, uint>> requirements)
-            : base(name, "weapon", classConstr, requirements)
+        public Weapon(string name, ItemType type, int minDmg, int maxDmg, UserClassType classConstr, List<KeyValuePair<SkillType, uint>> requirements)
+            : base(name, type, classConstr, requirements)
         {
-            this.minDamage = minDmg;
-            this.maxDamage = maxDmg;
-            this.Type = type;
+            this.MinDamage = minDmg;
+            this.MaxDamage = maxDmg;
         }
     }
 }

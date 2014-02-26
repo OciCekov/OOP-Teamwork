@@ -3,14 +3,12 @@
     public abstract class Item
     {
         public string Name { get; set; }
-        public string Type { get; set; }
+        public ItemType Type { get; set; }
 
-        //owner po princip e null no ako nqkoi go digne ownera stava geroq koito go e dignal
-        //eventualno price
-
-        public Item(string name, string type)
+        public Item(string name, ItemType type)
         {
             this.Name = name;
+            this.Type = type;
         }
     }
 }

@@ -3,8 +3,8 @@
     using System.Collections.Generic;
     public class Boots : Armour
     {
-        public Boots(string name, int defence, List<KeyValuePair<string, uint>> requirements)
-            : base(name, "boots", defence, "all", requirements)
+        public Boots(string name, int defence, List<KeyValuePair<SkillType, uint>> requirements)
+            : base(name, ItemType.boots, defence, UserClassType.All, requirements)
         { }
     }
 }

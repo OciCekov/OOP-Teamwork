@@ -2,8 +2,8 @@
 {
     public class UsableItems : Item
     {
-        public UsableItems(string name) //za questove
-            :base(name, "usableItem")
+        public UsableItems(string name)
+            : base(name, ItemType.usableItem)
         { }
     }
 }
