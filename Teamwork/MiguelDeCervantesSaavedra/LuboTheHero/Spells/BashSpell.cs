@@ -1,5 +1,7 @@
-﻿
-//this is fighter spell; adds aditional dmg to the physycal damage of the hero for one attack
+﻿//this is fighter spell; adds aditional dmg to the physycal damage of the hero for one attack
+
+using LuboTheHero.Spells;
+
 namespace LuboTheHero
 {
     using System;

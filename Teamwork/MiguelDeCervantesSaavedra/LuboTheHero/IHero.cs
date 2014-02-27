@@ -1,6 +1,6 @@
 ﻿namespace LuboTheHero
 {
-    using LuboTheHero.Items;
+    using Items;
 
     public interface IHero
     {       

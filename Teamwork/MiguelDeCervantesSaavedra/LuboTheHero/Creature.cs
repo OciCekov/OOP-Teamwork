@@ -1,7 +1,7 @@
 ﻿namespace LuboTheHero
 {
     using System;
-    using LuboTheHero.UIClasses;
+    using UIClasses;
 
     public abstract class Creature : IMovable, IRenderable
     {

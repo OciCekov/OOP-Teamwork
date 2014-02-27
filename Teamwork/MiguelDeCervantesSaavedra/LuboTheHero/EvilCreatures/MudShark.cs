@@ -9,7 +9,7 @@
         private const int InitialLineOfSight = 1;
 
         public MudShark(MatrixCoords position, byte attack)
-            : base(position, 40, 2, 6, 4, 1)
+            : base(position, InitialHealth, InitialPhysicalDamage, InitialSpellDamage, InitialInitiative, InitialLineOfSight)
         {
             this.Attack = attack;            
         }

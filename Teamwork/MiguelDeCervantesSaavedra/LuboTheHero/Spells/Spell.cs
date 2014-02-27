@@ -1,5 +1,4 @@
-﻿
-namespace LuboTheHero
+﻿namespace LuboTheHero.Spells
 {  
     public abstract class Spell 
     {        

@@ -1,7 +1,8 @@
-﻿namespace LuboTheHero
+﻿namespace LuboTheHero.Spells
 {
     using System;
     using System.Collections.Generic;
+
     public static class ExtensionMethod
     {
         public static Spell Bash(this List<Spell> list)

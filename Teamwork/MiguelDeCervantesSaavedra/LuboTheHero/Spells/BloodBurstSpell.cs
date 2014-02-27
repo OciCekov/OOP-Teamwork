@@ -1,5 +1,7 @@
-﻿
-//this is fighter spell; adds 5 to health until next physical attack
+﻿//this is fighter spell; adds 5 to health until next physical attack
+
+using LuboTheHero.Spells;
+
 namespace LuboTheHero
 {
 

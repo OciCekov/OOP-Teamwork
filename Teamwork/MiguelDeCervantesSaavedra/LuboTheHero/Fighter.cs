@@ -101,10 +101,12 @@
             {
                 this.CurrentImage = this.leftMatrix;
             }
+
             else if (this.DeltaPosition.Equals(MatrixCoords.RightVector))
             {
                 this.CurrentImage = this.rightMatrix;
             }
+
             else if (this.DeltaPosition.Equals(MatrixCoords.DownVector))
             {
                 if (this.CurrentImage == this.rightDownMatrix || this.CurrentImage == this.rightUpMatrix || this.CurrentImage == this.rightMatrix)
@@ -116,6 +118,7 @@
                     this.CurrentImage = this.leftDownMatrix;
                 }
             }
+
             else
             {
                 if (this.CurrentImage == this.rightDownMatrix || this.CurrentImage == this.rightUpMatrix || this.CurrentImage == this.rightMatrix)

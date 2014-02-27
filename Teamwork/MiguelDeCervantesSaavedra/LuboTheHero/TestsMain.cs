@@ -4,7 +4,7 @@
     using System.Collections.Generic;        
     using LuboTheHero.EvilCreatures;
     using System.Threading;
-    using LuboTheHero.UIClasses;
+    using UIClasses;
     using System.Text;
 
     class TestsMain
@@ -149,13 +149,14 @@
 
             MatrixCoords temp = new MatrixCoords(17, 56);
             Hero hero = new Fighter(temp, "Pencho");
-
+            
             while (true)
             {
                 ReadKeyInput(hero, firstLevelCastle);
                 renderer.EnqueueForRendering(hero);                
                 renderer.RenderAll();                
                 renderer.ClearQueue();
+            
                 Console.WriteLine();
                 Thread.Sleep(100);
             }

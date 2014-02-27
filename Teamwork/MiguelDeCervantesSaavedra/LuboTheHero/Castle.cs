@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
     public class Castle
     {
         public const int NUMBER_OF_ROOMS_IN_LEVEL = 4;
@@ -14,7 +10,7 @@ namespace LuboTheHero
         public const int ROOM_WIDTH = 117;
         public const int WALL_WIDTH = 1;
 
-        private List<char[,]> rooms;
+        private readonly List<char[,]> rooms;
         private int currentRoomIndex;
         private string level;
 

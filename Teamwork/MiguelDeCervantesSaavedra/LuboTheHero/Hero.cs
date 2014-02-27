@@ -1,4 +1,6 @@
-﻿namespace LuboTheHero
+﻿using LuboTheHero.Spells;
+
+namespace LuboTheHero
 {
     using System;
     using System.Collections.Generic;            

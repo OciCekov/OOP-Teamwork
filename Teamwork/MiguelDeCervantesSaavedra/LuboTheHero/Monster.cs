@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LuboTheHero
+﻿namespace LuboTheHero
 {
+    using System;
     public class Monster : Creature
     {
         public Monster(MatrixCoords position, int health, byte physicalDamage, byte spellDamge, byte initiative, int lineofSight)

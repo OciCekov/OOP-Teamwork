@@ -1,8 +1,6 @@
-﻿
-//This is a Wizzard spell. Suckes the mana of the opponent
-namespace LuboTheHero
+﻿//This is a Wizzard spell. Suckes the mana of the opponent
+namespace LuboTheHero.Spells
 {
-    using System;
     class ManaSuckSpell : Spell
     {
         private const int reduceAttack = 0;

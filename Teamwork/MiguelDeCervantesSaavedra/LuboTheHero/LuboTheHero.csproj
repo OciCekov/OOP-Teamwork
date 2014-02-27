@@ -44,7 +44,6 @@
     <Compile Include="Castle.cs" />
     <Compile Include="CharacterSheet.cs" />
     <Compile Include="Creature.cs" />
-    <Compile Include="Engine.cs" />
     <Compile Include="EvilCreatures\BloodHound.cs" />
     <Compile Include="EvilCreatures\HellSnake.cs" />
     <Compile Include="EvilCreatures\KillerBiever.cs" />

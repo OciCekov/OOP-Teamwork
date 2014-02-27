@@ -1,6 +1,5 @@
-﻿
-//This is Range Hero spell. Adds aditional damage
-namespace LuboTheHero
+﻿//This is Range Hero spell. Adds aditional damage
+namespace LuboTheHero.Spells
 {
     
     public class MagicArrowSpell : Spell

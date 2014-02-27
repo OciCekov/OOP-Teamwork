@@ -1,7 +1,6 @@
 ﻿namespace LuboTheHero.UIClasses
 {
     using System;
-    using System.Collections.Generic;    
     using System.Text;    
     using System.IO;
 
@@ -10,9 +9,9 @@
         private const int PLAY_FIELD_TOP = 0;
         private const int PLAY_FIELD_LEFT = 1;
 
-        private int renderContextMatrixRows;
-        private int renderContextMatrixCols;
-        private char[,] renderContextMatrix;
+        private readonly int renderContextMatrixRows;
+        private readonly int renderContextMatrixCols;
+        private readonly char[,] renderContextMatrix;
 
         public ConsoleRenderer(int playFieldConsoleRows, int playFieldConsoleCols)
         {

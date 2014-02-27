@@ -1,6 +1,5 @@
-﻿
-//This is Wizzard Spell. Freezes opponent till next phisical attack, and makes physical dmg
-namespace LuboTheHero
+﻿//This is Wizzard Spell. Freezes opponent till next phisical attack, and makes physical dmg
+namespace LuboTheHero.Spells
 {
     class FreezeSpell : Spell
     {
