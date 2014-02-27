@@ -10,5 +10,7 @@
             this.Name = name;
             this.Type = type;
         }
+
+        public abstract char[,] GetImage();
     }
 }
